@@ -1,0 +1,11 @@
+RewriteEngine On 
+#RewriteRule ^([A-Za-z0-9_-]+)$ $1.php
+RewriteCond %{HTTP_HOST} ^cesarearienti.it [OR]
+RewriteCond %{HTTP_HOST} ^.*arienticesare.it
+RewriteRule (.*) https://www.cesarearienti.it/$1 [R=301,L]
+<Files ~ "^.(htaccess|htpasswd)$">
+deny from all
+</Files>
+ErrorDocument 404 /index.html
+DirectoryIndex index.html
+order deny,allow
